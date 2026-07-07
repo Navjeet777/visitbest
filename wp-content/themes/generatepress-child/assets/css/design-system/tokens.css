@@ -1,0 +1,56 @@
+/**
+ * Visitbest design tokens.
+ * All colors, radii, and layout constants — no hardcoded values in components.
+ *
+ * @package Visitbest
+ */
+
+:root {
+	/* Colors — ink */
+	--vb-ink: #1a1a2e;
+	--vb-ink-muted: #5c5c6f;
+	--vb-ink-light: #9494a8;
+
+	/* Colors — surfaces */
+	--vb-surface: #fafaf8;
+	--vb-card: #ffffff;
+	--vb-border: #e8e6e1;
+
+	/* Colors — brand accent */
+	--vb-accent: #c45c26;
+	--vb-accent-hover: #a34a1e;
+	--vb-accent-subtle: #fdf3ed;
+
+	/* Colors — affiliate / CTA */
+	--vb-cta: #1b7a4e;
+	--vb-cta-hover: #156640;
+	--vb-cta-subtle: #edf7f1;
+
+	/* Colors — utility */
+	--vb-focus: #c45c26;
+	--vb-overlay: rgba(26, 26, 46, 0.6);
+
+	/* Typography families — fall back to GP Font Library variables when present */
+	--vb-font-heading: var(--gp-font--playfair-display, "Playfair Display"), Georgia, "Times New Roman", serif;
+	--vb-font-body: var(--gp-font--mulish, Mulish), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+	/* Layout */
+	--vb-container: 75rem;
+	--vb-content: 45rem;
+	--vb-sidebar: 18.75rem;
+
+	/* Border radius */
+	--vb-radius-sm: 0.25rem;
+	--vb-radius-md: 0.5rem;
+	--vb-radius-lg: 0.75rem;
+	--vb-radius-pill: 9999px;
+
+	/* Transitions */
+	--vb-transition-fast: 150ms ease;
+	--vb-transition-base: 250ms ease;
+
+	/* Z-index scale */
+	--vb-z-dropdown: 100;
+	--vb-z-sticky: 200;
+	--vb-z-overlay: 300;
+}

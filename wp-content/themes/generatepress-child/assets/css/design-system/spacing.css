@@ -1,0 +1,74 @@
+/**
+ * Visitbest spacing system (8px base).
+ *
+ * @package Visitbest
+ */
+
+:root {
+	--vb-space-1: 0.25rem;
+	--vb-space-2: 0.5rem;
+	--vb-space-3: 0.75rem;
+	--vb-space-4: 1rem;
+	--vb-space-5: 1.5rem;
+	--vb-space-6: 2rem;
+	--vb-space-8: 2.5rem;
+	--vb-space-10: 4rem;
+	--vb-space-12: 5rem;
+}
+
+.vb-container {
+	margin-inline: auto;
+	max-width: var(--vb-container);
+	padding-inline: var(--vb-space-4);
+	width: 100%;
+}
+
+@media (min-width: 48rem) {
+	.vb-container {
+		padding-inline: var(--vb-space-6);
+	}
+}
+
+.vb-section {
+	padding-block: var(--vb-space-10);
+}
+
+@media (max-width: 47.99rem) {
+	.vb-section {
+		padding-block: var(--vb-space-8);
+	}
+}
+
+.vb-stack-2 > * + * {
+	margin-top: var(--vb-space-2);
+}
+
+.vb-stack-3 > * + * {
+	margin-top: var(--vb-space-3);
+}
+
+.vb-stack-4 > * + * {
+	margin-top: var(--vb-space-4);
+}
+
+.vb-stack-5 > * + * {
+	margin-top: var(--vb-space-5);
+}
+
+.vb-grid-cards {
+	display: grid;
+	gap: var(--vb-space-5);
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 48rem) {
+	.vb-grid-cards {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 64rem) {
+	.vb-grid-cards--3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}

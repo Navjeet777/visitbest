@@ -1,0 +1,86 @@
+/**
+ * Visitbest button styles.
+ *
+ * @package Visitbest
+ */
+
+.vb-btn {
+	align-items: center;
+	border: 1px solid transparent;
+	border-radius: var(--vb-radius-md);
+	cursor: pointer;
+	display: inline-flex;
+	font-family: var(--vb-font-body);
+	font-size: var(--vb-text-sm);
+	font-weight: var(--vb-weight-bold);
+	gap: var(--vb-space-2);
+	justify-content: center;
+	line-height: var(--vb-leading-normal);
+	padding: var(--vb-space-3) var(--vb-space-5);
+	text-decoration: none;
+	transition: background-color var(--vb-transition-fast), border-color var(--vb-transition-fast), color var(--vb-transition-fast), transform var(--vb-transition-fast);
+}
+
+.vb-btn:focus-visible {
+	outline: 2px solid var(--vb-focus);
+	outline-offset: 2px;
+}
+
+.vb-btn--primary {
+	background-color: var(--vb-accent);
+	color: var(--vb-card);
+}
+
+.vb-btn--primary:hover,
+.vb-btn--primary:focus-visible {
+	background-color: var(--vb-accent-hover);
+	color: var(--vb-card);
+}
+
+.vb-btn--cta {
+	background-color: var(--vb-cta);
+	color: var(--vb-card);
+}
+
+.vb-btn--cta:hover,
+.vb-btn--cta:focus-visible {
+	background-color: var(--vb-cta-hover);
+	color: var(--vb-card);
+}
+
+.vb-btn--secondary {
+	background-color: var(--vb-card);
+	border-color: var(--vb-border);
+	color: var(--vb-ink);
+}
+
+.vb-btn--secondary:hover,
+.vb-btn--secondary:focus-visible {
+	border-color: var(--vb-ink-muted);
+	color: var(--vb-ink);
+}
+
+.vb-btn--ghost {
+	background-color: transparent;
+	color: var(--vb-accent);
+}
+
+.vb-btn--ghost:hover,
+.vb-btn--ghost:focus-visible {
+	background-color: var(--vb-accent-subtle);
+	color: var(--vb-accent-hover);
+}
+
+.vb-btn--sm {
+	font-size: var(--vb-text-xs);
+	padding: var(--vb-space-2) var(--vb-space-4);
+}
+
+.vb-btn--lg {
+	font-size: var(--vb-text-base);
+	padding: var(--vb-space-4) var(--vb-space-6);
+}
+
+.vb-btn--block {
+	width: 100%;
+}

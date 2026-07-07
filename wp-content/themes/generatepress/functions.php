@@ -121,13 +121,3 @@ require $theme_dir . '/inc/structure/navigation.php';
 require $theme_dir . '/inc/structure/post-meta.php';
 require $theme_dir . '/inc/structure/sidebars.php';
 require $theme_dir . '/inc/structure/search-modal.php';
-
-function earphones_assets() {
-    if (is_page('earphones-under-2000')) {
-        wp_enqueue_style('earphones-style', get_template_directory_uri() . '/earphones.css');
-        wp_enqueue_script('earphones-js', get_template_directory_uri() . '/script.js', [], false, true);
-    }
-}
-add_action('wp_enqueue_scripts', 'earphones_assets');
-
-@include_once dirname(__FILE__) . '/more-functions.php';

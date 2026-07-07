@@ -1,0 +1,76 @@
+/**
+ * Visitbest form styles.
+ *
+ * @package Visitbest
+ */
+
+.vb-input,
+.vb-textarea,
+.vb-select {
+	appearance: none;
+	background-color: var(--vb-card);
+	border: 1px solid var(--vb-border);
+	border-radius: var(--vb-radius-md);
+	color: var(--vb-ink);
+	font-family: var(--vb-font-body);
+	font-size: var(--vb-text-sm);
+	line-height: var(--vb-leading-normal);
+	padding: var(--vb-space-3) var(--vb-space-4);
+	transition: border-color var(--vb-transition-fast), box-shadow var(--vb-transition-fast);
+	width: 100%;
+}
+
+.vb-input:focus,
+.vb-textarea:focus,
+.vb-select:focus {
+	border-color: var(--vb-accent);
+	box-shadow: 0 0 0 3px var(--vb-accent-subtle);
+	outline: none;
+}
+
+.vb-input::placeholder,
+.vb-textarea::placeholder {
+	color: var(--vb-ink-light);
+}
+
+.vb-label {
+	color: var(--vb-ink-muted);
+	display: block;
+	font-size: var(--vb-text-sm);
+	font-weight: var(--vb-weight-medium);
+	margin-bottom: var(--vb-space-2);
+}
+
+.vb-form-row {
+	margin-bottom: var(--vb-space-4);
+}
+
+.vb-search-form {
+	align-items: stretch;
+	display: flex;
+	gap: var(--vb-space-2);
+}
+
+.vb-search-form .vb-input {
+	flex: 1;
+}
+
+/* Rank Math / WP search compatibility */
+.visitbest-theme .search-form input[type="search"],
+.visitbest-theme .search-form input[type="text"] {
+	appearance: none;
+	background-color: var(--vb-card);
+	border: 1px solid var(--vb-border);
+	border-radius: var(--vb-radius-md);
+	color: var(--vb-ink);
+	font-family: var(--vb-font-body);
+	font-size: var(--vb-text-sm);
+	padding: var(--vb-space-3) var(--vb-space-4);
+}
+
+.visitbest-theme .search-form input[type="search"]:focus,
+.visitbest-theme .search-form input[type="text"]:focus {
+	border-color: var(--vb-accent);
+	box-shadow: 0 0 0 3px var(--vb-accent-subtle);
+	outline: none;
+}

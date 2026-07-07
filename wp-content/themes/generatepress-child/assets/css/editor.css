@@ -1,0 +1,18 @@
+/**
+ * Block editor styles — mirrors frontend design tokens.
+ *
+ * @package Visitbest
+ */
+
+@import url("design-system/tokens.css");
+@import url("design-system/typography.css");
+
+.editor-styles-wrapper {
+	color: var(--vb-ink);
+	font-family: var(--vb-font-body);
+}
+
+.editor-styles-wrapper .vb-heading-1,
+.editor-styles-wrapper .vb-section-heading__title {
+	font-family: var(--vb-font-heading);
+}

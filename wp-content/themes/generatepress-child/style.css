@@ -1,0 +1,21 @@
+/*
+Theme Name: Visitbest
+Theme URI: https://visitbest.in
+Description: Child theme for Visit-Best — modern premium editorial blog built on GeneratePress.
+Author: Visit-Best
+Author URI: https://visitbest.in
+Template: generatepress
+Version: 1.0.0
+Requires at least: 6.5
+Tested up to: 7.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: visitbest
+*/
+
+/*
+ * All styles are enqueued via inc/class-assets.php.
+ * Design tokens live in assets/css/design-system/.
+ * Component styles live in assets/css/components/.
+ */
