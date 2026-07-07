@@ -15,6 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Visitbest_Homepage {
 
 	/**
+	 * Post IDs rendered in the featured section (excluded from latest).
+	 *
+	 * @var int[]
+	 */
+	private static $featured_post_ids = array();
+
+	/**
 	 * Register hooks.
 	 *
 	 * @return void
@@ -85,18 +92,27 @@ class Visitbest_Homepage {
 	/**
 	 * Query latest posts.
 	 *
-	 * @param int $count Number of posts.
+	 * @param int   $count   Number of posts.
+	 * @param int[] $exclude Post IDs to exclude.
 	 * @return WP_Query
 	 */
-	public static function get_latest_posts( $count = 6 ) {
-		return new WP_Query(
-			array(
-				'post_type'           => 'post',
-				'posts_per_page'      => $count,
-				'ignore_sticky_posts' => true,
-				'no_found_rows'       => true,
-			)
+	public static function get_latest_posts( $count = 6, $exclude = array() ) {
+		if ( empty( $exclude ) ) {
+			$exclude = self::$featured_post_ids;
+		}
+
+		$query_args = array(
+			'post_type'           => 'post',
+			'posts_per_page'      => $count,
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
 		);
+
+		if ( ! empty( $exclude ) ) {
+			$query_args['post__not_in'] = array_map( 'intval', $exclude );
+		}
+
+		return new WP_Query( $query_args );
 	}
 
 	/**
@@ -105,6 +121,31 @@ class Visitbest_Homepage {
 	 * @return WP_Query
 	 */
 	public static function get_featured_posts() {
-		return self::get_latest_posts( 3 );
+		$query = self::get_latest_posts( 3, array() );
+
+		self::$featured_post_ids = ! empty( $query->posts )
+			? wp_list_pluck( $query->posts, 'ID' )
+			: array();
+
+		return $query;
+	}
+
+	/**
+	 * Permalink for the posts page.
+	 *
+	 * @return string
+	 */
+	public static function get_posts_page_url() {
+		$posts_page_id = (int) get_option( 'page_for_posts' );
+
+		if ( $posts_page_id ) {
+			$permalink = get_permalink( $posts_page_id );
+
+			if ( $permalink ) {
+				return $permalink;
+			}
+		}
+
+		return home_url( '/' );
 	}
 }

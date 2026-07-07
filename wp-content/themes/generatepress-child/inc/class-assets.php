@@ -124,6 +124,17 @@ class Visitbest_Assets {
 			$version,
 			true
 		);
+
+		wp_localize_script(
+			'visitbest-header',
+			'visitbestHeader',
+			array(
+				'menuOpen'   => __( 'Open menu', 'visitbest' ),
+				'menuClose'  => __( 'Close menu', 'visitbest' ),
+				'searchOpen' => __( 'Open search', 'visitbest' ),
+				'searchClose'=> __( 'Close search', 'visitbest' ),
+			)
+		);
 	}
 
 	/**

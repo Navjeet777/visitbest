@@ -16,7 +16,6 @@ if ( ! $featured_query->have_posts() ) {
 }
 
 $posts = $featured_query->posts;
-wp_reset_postdata();
 ?>
 
 <section class="vb-home-featured vb-section" aria-labelledby="vb-featured-heading">
@@ -24,8 +23,9 @@ wp_reset_postdata();
 		<?php
 		Visitbest_Components::section_heading(
 			array(
-				'eyebrow' => __( 'Editor\'s Picks', 'visitbest' ),
-				'title'   => __( 'Featured Guides', 'visitbest' ),
+				'eyebrow'    => __( 'Editor\'s Picks', 'visitbest' ),
+				'title'      => __( 'Featured Guides', 'visitbest' ),
+				'heading_id' => 'vb-featured-heading',
 			)
 		);
 		?>
@@ -33,7 +33,14 @@ wp_reset_postdata();
 		<div class="vb-home-featured__layout">
 			<?php if ( ! empty( $posts[0] ) ) : ?>
 				<div class="vb-home-featured__primary">
-					<?php Visitbest_Components::featured_post_card( array( 'post_id' => $posts[0]->ID ) ); ?>
+					<?php
+					Visitbest_Components::featured_post_card(
+						array(
+							'post_id'        => $posts[0]->ID,
+							'priority_image' => true,
+						)
+					);
+					?>
 				</div>
 			<?php endif; ?>
 

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'VISITBEST_VERSION', '1.1.0' );
+define( 'VISITBEST_VERSION', '1.1.1' );
 define( 'VISITBEST_DIR', get_stylesheet_directory() );
 define( 'VISITBEST_URI', get_stylesheet_directory_uri() );
 

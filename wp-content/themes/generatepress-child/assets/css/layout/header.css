@@ -94,6 +94,22 @@
 	color: var(--vb-accent);
 }
 
+.vb-header__menu .sub-menu {
+	background-color: var(--vb-card);
+	border: 1px solid var(--vb-border);
+	border-radius: var(--vb-radius-md);
+	box-shadow: var(--vb-shadow-md);
+	list-style: none;
+	margin: 0;
+	min-width: 12rem;
+	padding: var(--vb-space-2);
+}
+
+.vb-header__menu .sub-menu a {
+	font-weight: var(--vb-weight-medium);
+	white-space: nowrap;
+}
+
 .vb-header__actions {
 	align-items: center;
 	display: flex;
@@ -140,7 +156,13 @@
 .vb-header__search {
 	background-color: var(--vb-surface);
 	border-bottom: 1px solid var(--vb-border);
+	box-shadow: var(--vb-shadow-md);
+	left: 0;
 	padding-block: var(--vb-space-4);
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: calc(var(--vb-z-sticky) + 1);
 }
 
 .vb-header__search[hidden] {
@@ -159,21 +181,63 @@
 	.vb-header__menu-toggle {
 		display: none;
 	}
+
+	.vb-header__menu > li {
+		position: relative;
+	}
+
+	.vb-header__menu .sub-menu {
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: calc(100% + var(--vb-space-1));
+		transform: translateY(0.25rem);
+		transition: opacity var(--vb-transition-fast), transform var(--vb-transition-fast), visibility var(--vb-transition-fast);
+		visibility: hidden;
+		z-index: calc(var(--vb-z-sticky) + 2);
+	}
+
+	.vb-header__menu li:hover > .sub-menu,
+	.vb-header__menu li:focus-within > .sub-menu {
+		opacity: 1;
+		transform: translateY(0);
+		visibility: visible;
+	}
 }
 
 @media (max-width: 63.99rem) {
+	.vb-header__inner {
+		position: relative;
+	}
+
 	.vb-header.is-menu-open .vb-header__nav {
 		background-color: var(--vb-card);
 		border-top: 1px solid var(--vb-border);
+		box-shadow: var(--vb-shadow-md);
 		display: block;
 		left: 0;
 		padding: var(--vb-space-4);
 		position: absolute;
 		right: 0;
 		top: 100%;
+		z-index: calc(var(--vb-z-sticky) + 1);
 	}
 
 	.vb-header.is-menu-open .vb-header__menu {
 		flex-direction: column;
+	}
+
+	.vb-header__menu .sub-menu {
+		border: 0;
+		box-shadow: none;
+		margin-top: var(--vb-space-1);
+		min-width: 0;
+		padding: 0 0 0 var(--vb-space-4);
+	}
+
+	.vb-header__menu .sub-menu a {
+		font-size: var(--vb-text-sm);
+		padding-block: var(--vb-space-2);
+		white-space: normal;
 	}
 }

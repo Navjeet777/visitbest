@@ -17,6 +17,7 @@ $categories = get_categories(
 );
 
 $contact_url = home_url( '/contact-us/' );
+$privacy_url = get_privacy_policy_url();
 $year        = gmdate( 'Y' );
 ?>
 
@@ -42,7 +43,7 @@ $year        = gmdate( 'Y' );
 	<div class="vb-footer__main">
 		<div class="vb-container vb-footer__grid">
 			<div class="vb-footer__column vb-footer__column--about">
-				<p class="vb-footer__logo"><?php bloginfo( 'name' ); ?></p>
+				<p class="vb-footer__logo"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
 				<p class="vb-footer__about">
 					<?php esc_html_e( 'Explore the best brands, products, and companies in India. Expert-curated guides you can trust.', 'visitbest' ); ?>
 				</p>
@@ -66,7 +67,9 @@ $year        = gmdate( 'Y' );
 				<ul class="vb-footer__links">
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'visitbest' ); ?></a></li>
 					<li><a href="<?php echo esc_url( $contact_url ); ?>"><?php esc_html_e( 'Contact', 'visitbest' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy Policy', 'visitbest' ); ?></a></li>
+					<?php if ( $privacy_url ) : ?>
+						<li><a href="<?php echo esc_url( $privacy_url ); ?>"><?php esc_html_e( 'Privacy Policy', 'visitbest' ); ?></a></li>
+					<?php endif; ?>
 				</ul>
 			</div>
 

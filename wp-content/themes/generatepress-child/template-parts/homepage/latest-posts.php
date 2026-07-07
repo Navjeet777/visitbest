@@ -25,7 +25,8 @@ if ( ! $latest_query->have_posts() ) {
 				'title'        => __( 'Latest Posts', 'visitbest' ),
 				'description'  => __( 'Recently published guides and listicles from Visit-Best.', 'visitbest' ),
 				'action_label' => __( 'View all posts', 'visitbest' ),
-				'action_url'   => get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ),
+				'action_url'   => Visitbest_Homepage::get_posts_page_url(),
+				'heading_id'   => 'vb-latest-heading',
 			)
 		);
 		?>

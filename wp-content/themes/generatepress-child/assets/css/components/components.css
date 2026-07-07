@@ -32,6 +32,17 @@
 	position: relative;
 }
 
+.vb-post-card__media > a {
+	display: block;
+	height: 100%;
+}
+
+.vb-post-card__placeholder {
+	background: linear-gradient(135deg, var(--vb-surface) 0%, var(--vb-border) 100%);
+	height: 100%;
+	width: 100%;
+}
+
 .vb-post-card__image {
 	height: 100%;
 	object-fit: cover;
@@ -117,6 +128,18 @@
 	aspect-ratio: 16 / 9;
 	display: block;
 	overflow: hidden;
+}
+
+.vb-featured-post-card__media > a {
+	display: block;
+	height: 100%;
+}
+
+.vb-featured-post-card__placeholder {
+	background: linear-gradient(135deg, var(--vb-surface) 0%, var(--vb-border) 100%);
+	height: 100%;
+	min-height: 12rem;
+	width: 100%;
 }
 
 @media (min-width: 48rem) {

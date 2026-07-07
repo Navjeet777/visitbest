@@ -28,6 +28,7 @@ if ( empty( $categories ) ) {
 				'eyebrow'     => __( 'Discover', 'visitbest' ),
 				'title'       => __( 'Browse by Category', 'visitbest' ),
 				'description' => __( 'Jump into the topics that matter most to you.', 'visitbest' ),
+				'heading_id'  => 'vb-categories-heading',
 			)
 		);
 		?>

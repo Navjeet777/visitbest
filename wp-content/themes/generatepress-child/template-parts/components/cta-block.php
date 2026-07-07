@@ -11,6 +11,7 @@
  *     @type string $button_text Primary button label.
  *     @type string $button_url  Primary button URL.
  *     @type string $variant     Style variant: default|dark. Default default.
+ *     @type string $title_id    Optional ID for the title element (for aria-labelledby).
  *     @type string $class       Additional CSS classes.
  * }
  */
@@ -28,6 +29,7 @@ $args = wp_parse_args(
 		'button_text' => '',
 		'button_url'  => '',
 		'variant'     => 'default',
+		'title_id'    => '',
 		'class'       => '',
 	)
 );
@@ -54,7 +56,10 @@ if ( ! empty( $args['class'] ) ) {
 		</p>
 	<?php endif; ?>
 
-	<h2 class="vb-cta-block__title">
+	<h2
+		class="vb-cta-block__title"
+		<?php echo ! empty( $args['title_id'] ) ? 'id="' . esc_attr( $args['title_id'] ) . '"' : ''; ?>
+	>
 		<?php echo esc_html( $args['title'] ); ?>
 	</h2>
 

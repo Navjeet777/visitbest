@@ -32,33 +32,38 @@ if ( ! $post_id ) {
 	return;
 }
 
-$permalink = get_permalink( $post_id );
-$title     = get_the_title( $post_id );
-$category  = Visitbest_Components::get_primary_category( $post_id );
-$classes   = trim( 'vb-post-card ' . $args['class'] );
+$permalink     = get_permalink( $post_id );
+$title         = get_the_title( $post_id );
+$category      = Visitbest_Components::get_primary_category( $post_id );
+$classes       = trim( 'vb-post-card ' . $args['class'] );
+$has_thumbnail = has_post_thumbnail( $post_id );
 ?>
 
 <article class="<?php echo esc_attr( $classes ); ?>">
-	<a class="vb-post-card__media" href="<?php echo esc_url( $permalink ); ?>" tabindex="-1" aria-hidden="true">
-		<?php
-		if ( has_post_thumbnail( $post_id ) ) {
-			echo get_the_post_thumbnail(
-				$post_id,
-				'visitbest-card',
-				array(
-					'class'   => 'vb-post-card__image',
-					'loading' => 'lazy',
-					'alt'     => the_title_attribute(
-						array(
-							'post'  => $post_id,
-							'echo'  => false,
-						)
-					),
-				)
-			);
-		}
-		?>
-	</a>
+	<div class="vb-post-card__media">
+		<?php if ( $has_thumbnail ) : ?>
+			<a href="<?php echo esc_url( $permalink ); ?>" tabindex="-1" aria-hidden="true">
+				<?php
+				echo get_the_post_thumbnail(
+					$post_id,
+					'visitbest-card',
+					array(
+						'class'   => 'vb-post-card__image',
+						'loading' => 'lazy',
+						'alt'     => the_title_attribute(
+							array(
+								'post' => $post_id,
+								'echo' => false,
+							)
+						),
+					)
+				);
+				?>
+			</a>
+		<?php else : ?>
+			<div class="vb-post-card__placeholder" aria-hidden="true"></div>
+		<?php endif; ?>
+	</div>
 
 	<div class="vb-post-card__body">
 		<?php if ( $args['show_meta'] && $category ) : ?>

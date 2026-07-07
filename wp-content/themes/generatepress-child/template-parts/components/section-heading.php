@@ -10,6 +10,7 @@
  *     @type string $description  Optional description.
  *     @type string $action_label Optional action link label.
  *     @type string $action_url   Optional action link URL.
+ *     @type string $heading_id   Optional ID for the title element (for aria-labelledby).
  *     @type string $class        Additional CSS classes.
  * }
  */
@@ -26,6 +27,7 @@ $args = wp_parse_args(
 		'description'  => '',
 		'action_label' => '',
 		'action_url'   => '',
+		'heading_id'   => '',
 		'class'        => '',
 	)
 );
@@ -45,7 +47,10 @@ $classes = trim( 'vb-section-heading ' . $args['class'] );
 			</p>
 		<?php endif; ?>
 
-		<h2 class="vb-section-heading__title vb-heading-2">
+		<h2
+			class="vb-section-heading__title vb-heading-2"
+			<?php echo ! empty( $args['heading_id'] ) ? 'id="' . esc_attr( $args['heading_id'] ) . '"' : ''; ?>
+		>
 			<?php echo esc_html( $args['title'] ); ?>
 		</h2>
 

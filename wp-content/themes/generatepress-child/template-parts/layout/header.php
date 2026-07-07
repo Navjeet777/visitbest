@@ -19,9 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 			<?php else : ?>
 				<a class="vb-header__title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<span class="vb-header__title-text"><?php bloginfo( 'name' ); ?></span>
+					<span class="vb-header__title-text"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 					<?php if ( get_bloginfo( 'description' ) ) : ?>
-						<span class="vb-header__tagline"><?php bloginfo( 'description' ); ?></span>
+						<span class="vb-header__tagline"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></span>
 					<?php endif; ?>
 				</a>
 			<?php endif; ?>

@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'text'        => __( 'A weekly roundup of India\'s best brands, products, and companies. No spam — unsubscribe anytime.', 'visitbest' ),
 				'button_text' => __( 'Coming soon', 'visitbest' ),
 				'button_url'  => '#vb-newsletter',
+				'title_id'    => 'vb-newsletter-heading',
 				'class'       => 'vb-home-newsletter__cta',
 			)
 		);
