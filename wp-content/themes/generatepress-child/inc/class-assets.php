@@ -93,6 +93,37 @@ class Visitbest_Assets {
 			array( 'visitbest-components' ),
 			$version
 		);
+
+		wp_enqueue_style(
+			'visitbest-header',
+			VISITBEST_URI . '/assets/css/layout/header.css',
+			array( 'visitbest-components' ),
+			$version
+		);
+
+		wp_enqueue_style(
+			'visitbest-footer',
+			VISITBEST_URI . '/assets/css/layout/footer.css',
+			array( 'visitbest-components' ),
+			$version
+		);
+
+		if ( is_front_page() ) {
+			wp_enqueue_style(
+				'visitbest-homepage',
+				VISITBEST_URI . '/assets/css/layout/homepage.css',
+				array( 'visitbest-components' ),
+				$version
+			);
+		}
+
+		wp_enqueue_script(
+			'visitbest-header',
+			VISITBEST_URI . '/assets/js/header.js',
+			array(),
+			$version,
+			true
+		);
 	}
 
 	/**

@@ -1,0 +1,156 @@
+/**
+ * Homepage layout.
+ *
+ * @package Visitbest
+ */
+
+.vb-homepage .site-content,
+.vb-homepage .content-area,
+.vb-homepage-main {
+	max-width: none;
+	padding: 0;
+	width: 100%;
+}
+
+.vb-homepage .inside-article {
+	padding: 0;
+}
+
+.vb-home-hero {
+	background: linear-gradient(180deg, var(--vb-accent-subtle) 0%, var(--vb-surface) 100%);
+}
+
+.vb-home-hero__inner {
+	display: flex;
+	flex-direction: column;
+	gap: var(--vb-space-8);
+}
+
+.vb-home-hero__content {
+	max-width: 42rem;
+}
+
+.vb-home-hero__eyebrow {
+	color: var(--vb-accent);
+	margin-bottom: var(--vb-space-3);
+}
+
+.vb-home-hero__title {
+	margin-bottom: var(--vb-space-4);
+}
+
+.vb-home-hero__text {
+	color: var(--vb-ink-muted);
+	font-size: var(--vb-text-lg);
+	margin: 0 0 var(--vb-space-6);
+	max-width: 36rem;
+}
+
+.vb-home-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--vb-space-3);
+}
+
+.vb-home-featured__layout {
+	display: grid;
+	gap: var(--vb-space-5);
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 64rem) {
+	.vb-home-featured__layout {
+		grid-template-columns: 1.4fr 1fr;
+	}
+}
+
+.vb-home-featured__secondary {
+	display: flex;
+	flex-direction: column;
+}
+
+.vb-home-categories {
+	background-color: var(--vb-surface);
+}
+
+.vb-home-categories__grid {
+	display: grid;
+	gap: var(--vb-space-4);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 48rem) {
+	.vb-home-categories__grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 64rem) {
+	.vb-home-categories__grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+.vb-home-categories__card {
+	background-color: var(--vb-card);
+	border: 1px solid var(--vb-border);
+	border-radius: var(--vb-radius-lg);
+	box-shadow: var(--vb-shadow-sm);
+	color: var(--vb-ink);
+	display: flex;
+	flex-direction: column;
+	gap: var(--vb-space-2);
+	min-height: 7rem;
+	padding: var(--vb-space-5);
+	text-decoration: none;
+	transition: box-shadow var(--vb-transition-base), transform var(--vb-transition-base), border-color var(--vb-transition-base);
+}
+
+.vb-home-categories__card:hover,
+.vb-home-categories__card:focus-visible {
+	border-color: var(--vb-accent);
+	box-shadow: var(--vb-shadow-card-hover);
+	transform: translateY(-2px);
+}
+
+.vb-home-categories__name {
+	font-size: var(--vb-text-lg);
+	font-weight: var(--vb-weight-bold);
+}
+
+.vb-home-categories__count {
+	color: var(--vb-ink-muted);
+	font-size: var(--vb-text-sm);
+}
+
+.vb-home-newsletter__form {
+	margin-top: var(--vb-space-5);
+	max-width: 32rem;
+}
+
+.vb-home-newsletter__cta {
+	margin-bottom: 0;
+}
+
+.vb-ad-slot {
+	align-items: center;
+	background-color: var(--vb-surface);
+	border: 1px dashed var(--vb-border);
+	display: flex;
+	justify-content: center;
+	margin-block: var(--vb-space-8);
+	min-height: 6.25rem;
+	padding: var(--vb-space-4);
+}
+
+.vb-ad-slot__label {
+	color: var(--vb-ink-light);
+	font-size: var(--vb-text-xs);
+	font-weight: var(--vb-weight-semibold);
+	letter-spacing: var(--vb-tracking-wide);
+	text-transform: uppercase;
+}
+
+.vb-home-latest {
+	background-color: var(--vb-card);
+}

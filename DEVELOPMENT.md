@@ -329,6 +329,83 @@ Activate **Visitbest** child theme in WP Admin → Appearance → Themes.
 
 ---
 
+## Phase 2B — Homepage, Header & Footer
+
+### Homepage architecture
+
+The homepage bypasses broken database page content via `front-page.php`. No database changes required.
+
+```
+front-page.php
+└── Visitbest_Homepage::render()
+    ├── template-parts/homepage/hero.php
+    ├── template-parts/homepage/featured-posts.php
+    ├── Ad slot: homepage-mid-1
+    ├── template-parts/homepage/latest-posts.php
+    ├── template-parts/homepage/category-browse.php
+    ├── template-parts/homepage/newsletter.php
+    └── Ad slot: homepage-bottom
+```
+
+| Setting | Value |
+|---------|-------|
+| Sidebar | Removed on front page (`no-sidebar`) |
+| Content width | Full width (`full-width-content`) |
+| Data source | `WP_Query` (latest posts) |
+| Broken `{{post_title}}` | Not rendered — `front-page.php` replaces page template |
+
+### Header architecture
+
+```
+generate_header hook
+└── Visitbest_Layout::render_header()
+    └── template-parts/layout/header.php
+        ├── Logo / site title
+        ├── wp_nav_menu( primary )
+        ├── Search toggle → expandable panel
+        └── Mobile menu toggle (≤1024px)
+```
+
+| Feature | Implementation |
+|---------|----------------|
+| Sticky | CSS `position: sticky` + `.is-scrolled` shadow |
+| Search | `searchform.php` child override |
+| Mobile nav | `.is-menu-open` class via `header.js` |
+| Accessibility | `aria-expanded`, `aria-controls`, `role="banner"` |
+
+### Footer architecture
+
+```
+generate_footer hook
+└── Visitbest_Layout::render_footer()
+    └── template-parts/layout/footer.php
+        ├── Footer CTA (dark variant)
+        ├── 4-column grid: About · Categories · Quick Links · Contact
+        ├── Newsletter placeholder (disabled)
+        └── Copyright bar + Amazon disclosure
+```
+
+GP default footer widgets and copyright bar are removed via `Visitbest_Layout`.
+
+### GenerateBlocks patterns registered
+
+| Pattern slug | Title | Purpose |
+|--------------|-------|---------|
+| `visitbest/homepage-hero` | Homepage Hero | Hero copy block |
+| `visitbest/homepage-featured-query` | Featured Posts Query | GB Query Loop with `useDynamicData` |
+| `visitbest/homepage-latest-query` | Latest Posts Grid | 3-col query loop (correct dynamic tags) |
+| `visitbest/homepage-category-browse` | Category Browse | Category section intro |
+| `visitbest/homepage-newsletter-cta` | Newsletter CTA | Newsletter placeholder |
+| `visitbest/adsense-slot` | AdSense Placeholder | Reserved ad slot |
+
+Query loop patterns use GenerateBlocks `useDynamicData` (`post-title`, `post-excerpt`, `featured-image`) — **not** GP Premium `{{post_title}}` tags.
+
+### Static preview (local)
+
+Open `wp-content/themes/generatepress-child/preview/homepage-preview.html` in a browser to preview layout/CSS without a database connection.
+
+---
+
 ## Related Documentation
 
 | File | Purpose |
@@ -388,8 +465,8 @@ Activate **Visitbest** child theme in WP Admin → Appearance → Themes.
 | Phase | Status | Scope |
 |-------|--------|-------|
 | **2A** | ✅ Complete | Child theme, design system, components |
-| **2B** | Pending approval | Homepage, header, footer |
-| **2C** | Planned | Single post template |
+| **2B** | ✅ Complete | Homepage, header, footer |
+| **2C** | Pending approval | Single post template |
 | **2D** | Planned | Category archive, search |
 | **2E** | Planned | Performance pass |
 | **2F** | Planned | Production deploy |
