@@ -1,0 +1,108 @@
+# =============================================================================
+# Visitbest WordPress — Production .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Secrets & environment-specific configuration
+# -----------------------------------------------------------------------------
+wp-config.php
+.env
+.env.*
+!.env.example
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+error_log
+*.log
+wp-content/debug.log
+
+# -----------------------------------------------------------------------------
+# Backups & archives
+# -----------------------------------------------------------------------------
+*.zip
+*.sql
+*.gz
+*.tar
+*.tar.gz
+*.tgz
+*.bak
+*.wpress
+
+# All-in-One WP Migration backups
+wp-content/ai1wm-backups/*
+!wp-content/ai1wm-backups/index.php
+!wp-content/ai1wm-backups/.htaccess
+!wp-content/ai1wm-backups/web.config
+!wp-content/ai1wm-backups/robots.txt
+!wp-content/ai1wm-backups/index.html
+
+# WordPress upgrade temp backups
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+
+# -----------------------------------------------------------------------------
+# Cache (regenerated at runtime — do not version)
+# -----------------------------------------------------------------------------
+wp-content/cache/
+wp-content/w3tc-config/
+.litespeed_flag
+
+# LiteSpeed / W3 Total Cache drop-ins (if present)
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+wp-content/db.php
+
+# -----------------------------------------------------------------------------
+# Media uploads (user-generated content — sync separately from Git)
+# -----------------------------------------------------------------------------
+wp-content/uploads/
+
+# -----------------------------------------------------------------------------
+# Hosting & server runtime artifacts
+# -----------------------------------------------------------------------------
+.ftpquota
+.tmb/
+cgi-bin/
+
+# Hosting write-permission test files (cPanel / Imunify)
+wp-content/temp-write-test-*
+
+# Security scanner cache (Imunify360)
+wp-content/imunify-security/
+
+# Auto-generated maintenance mode (WP Toolkit / hosting panel)
+wp-content/maintenance/
+wp-content/maintenance.php
+
+# -----------------------------------------------------------------------------
+# OS & editor files
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# -----------------------------------------------------------------------------
+# IDE & tooling
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+node_modules/
+vendor/
+composer.lock
+package-lock.json
+yarn.lock
+
+# -----------------------------------------------------------------------------
+# SSL / ACME challenge (managed on server; uncomment if you version certs locally)
+# -----------------------------------------------------------------------------
+# .well-known/
