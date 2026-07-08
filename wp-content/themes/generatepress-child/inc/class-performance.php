@@ -26,14 +26,7 @@ class Visitbest_Performance {
 	}
 
 	/**
-	 * Only prefetch external domains on singular posts with share buttons.
-	 *
-	 * @return void
-	 */
-	public static function dns_prefetch() {
-		if ( ! is_singular( 'post' ) ) {
-			return;
-		}
+	 * Lazy-load images in post content (not hero/LCP).
 	 *
 	 * @param array        $attr       Image attributes.
 	 * @param WP_Post      $attachment Attachment post.
@@ -87,7 +80,7 @@ class Visitbest_Performance {
 	}
 
 	/**
-	 * DNS prefetch for share and affiliate domains.
+	 * DNS prefetch for share domains on single posts.
 	 *
 	 * @return void
 	 */
