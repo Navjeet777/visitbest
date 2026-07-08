@@ -81,12 +81,7 @@ class Visitbest_Homepage {
 	 * @return void
 	 */
 	public static function render_ad_slot( $slot_id, $label ) {
-		printf(
-			'<aside class="vb-ad-slot" data-ad-slot="%1$s" role="complementary" aria-label="%2$s"><span class="vb-ad-slot__label">%3$s</span></aside>',
-			esc_attr( $slot_id ),
-			esc_attr( $label ),
-			esc_html__( 'Ad placeholder', 'visitbest' )
-		);
+		Visitbest_Components::ad_slot( $slot_id, $label );
 	}
 
 	/**

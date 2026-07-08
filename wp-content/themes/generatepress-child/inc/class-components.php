@@ -115,6 +115,53 @@ class Visitbest_Components {
 	}
 
 	/**
+	 * Render social share buttons.
+	 *
+	 * @param array $args Component arguments.
+	 * @return void
+	 */
+	public static function share_buttons( $args = array() ) {
+		self::render( 'share-buttons', $args );
+	}
+
+	/**
+	 * Render previous/next post navigation.
+	 *
+	 * @param array $args Component arguments.
+	 * @return void
+	 */
+	public static function post_navigation( $args = array() ) {
+		self::render( 'post-navigation', $args );
+	}
+
+	/**
+	 * Output an ad placeholder slot.
+	 *
+	 * @param string $slot_id Slot identifier.
+	 * @param string $label   Accessible label.
+	 * @return void
+	 */
+	public static function ad_slot( $slot_id, $label ) {
+		echo self::get_ad_slot_markup( $slot_id, $label ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper.
+	}
+
+	/**
+	 * Return ad placeholder markup.
+	 *
+	 * @param string $slot_id Slot identifier.
+	 * @param string $label   Accessible label.
+	 * @return string
+	 */
+	public static function get_ad_slot_markup( $slot_id, $label ) {
+		return sprintf(
+			'<aside class="vb-ad-slot" data-ad-slot="%1$s" role="complementary" aria-label="%2$s"><span class="vb-ad-slot__label">%3$s</span></aside>',
+			esc_attr( $slot_id ),
+			esc_attr( $label ),
+			esc_html__( 'Ad placeholder', 'visitbest' )
+		);
+	}
+
+	/**
 	 * Get estimated reading time in minutes.
 	 *
 	 * @param int $post_id Post ID.
