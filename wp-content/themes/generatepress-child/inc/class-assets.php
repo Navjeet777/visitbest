@@ -117,6 +117,24 @@ class Visitbest_Assets {
 			);
 		}
 
+		if ( is_singular( 'post' ) ) {
+			wp_enqueue_style(
+				'visitbest-single',
+				VISITBEST_URI . '/assets/css/layout/single.css',
+				array( 'visitbest-components' ),
+				$version
+			);
+		}
+
+		if ( is_archive() || is_search() || is_404() ) {
+			wp_enqueue_style(
+				'visitbest-archive',
+				VISITBEST_URI . '/assets/css/layout/archive.css',
+				array( 'visitbest-components' ),
+				$version
+			);
+		}
+
 		wp_enqueue_script(
 			'visitbest-header',
 			VISITBEST_URI . '/assets/js/header.js',
