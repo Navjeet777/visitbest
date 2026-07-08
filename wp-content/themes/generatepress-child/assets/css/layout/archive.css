@@ -1,0 +1,111 @@
+/**
+ * Archive, search, and 404 layouts.
+ *
+ * @package Visitbest
+ */
+
+.vb-archive-page .site-content,
+.vb-archive-page .content-area {
+	max-width: none;
+}
+
+.vb-archive-page .inside-article {
+	padding: 0;
+}
+
+.vb-archive-breadcrumbs {
+	padding-block: var(--vb-space-4) 0;
+}
+
+.vb-archive-header {
+	background: linear-gradient(180deg, var(--vb-accent-subtle) 0%, var(--vb-surface) 100%);
+}
+
+.vb-archive-header__eyebrow {
+	color: var(--vb-accent);
+	margin-bottom: var(--vb-space-2);
+}
+
+.vb-archive-header__title {
+	margin-bottom: var(--vb-space-4);
+}
+
+.vb-archive-header__description {
+	color: var(--vb-ink-muted);
+	margin-bottom: var(--vb-space-5);
+	max-width: 42rem;
+}
+
+.vb-archive-header__filters,
+.vb-archive-header__search {
+	margin-top: var(--vb-space-5);
+	max-width: 32rem;
+}
+
+.vb-archive-main {
+	padding-bottom: var(--vb-space-12);
+}
+
+.vb-archive-grid {
+	margin-bottom: var(--vb-space-8);
+}
+
+.vb-archive-empty {
+	padding-block: var(--vb-space-10);
+	text-align: center;
+}
+
+.vb-archive-empty__text {
+	color: var(--vb-ink-muted);
+	margin-bottom: var(--vb-space-6);
+}
+
+.vb-pagination {
+	margin-top: var(--vb-space-8);
+}
+
+.vb-pagination__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--vb-space-2);
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.vb-pagination__item a,
+.vb-pagination__item span {
+	border: 1px solid var(--vb-border);
+	border-radius: var(--vb-radius-md);
+	color: var(--vb-ink-muted);
+	display: inline-block;
+	min-width: 2.5rem;
+	padding: var(--vb-space-2) var(--vb-space-3);
+	text-align: center;
+	text-decoration: none;
+}
+
+.vb-pagination__item a:hover,
+.vb-pagination__item .current {
+	background-color: var(--vb-accent);
+	border-color: var(--vb-accent);
+	color: var(--vb-card);
+}
+
+.vb-error-page .vb-archive-header {
+	text-align: center;
+}
+
+.vb-error-page .vb-archive-empty__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--vb-space-3);
+	justify-content: center;
+}
+
+.vb-archive-empty__search {
+	margin-inline: auto;
+	margin-top: var(--vb-space-8);
+	max-width: 32rem;
+}
